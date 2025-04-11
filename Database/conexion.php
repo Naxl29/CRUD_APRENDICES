@@ -1,11 +1,11 @@
 <?php
 
 $server = "localhost";
-$database = "prueba_db";
-$usuario = "root";
-$contrasenia = "";
+$database = "crud_aprendices";
+$user = "root";
+$password = "";
 
-$conexion = mysqli_connect($server, $usuario, $contrasenia, $database);
+$conexion = mysqli_connect($server, $user, $password, $database);
 
 try {
     if (!$conexion) {
