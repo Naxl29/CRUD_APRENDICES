@@ -1,6 +1,7 @@
 <?php
 
-require_once 'Database/conexion.php';
+set_include_path(get_include_path() . PATH_SEPARATOR . __DIR__ . '/../');
+require_once __DIR__ . '/../Database/conexion.php';
 
 class Persona
 {
@@ -47,21 +48,21 @@ class Persona
         return $result; 
     }
 
-    public function crearPersona(){         // Lógica para insertar persona
+    public function crearPersona($datos){         // Lógica para insertar persona
         $sql = "INSERT INTO personas (primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, fecha_nacimiento, id_tipo_documento, n_documento, id_f_sanguineo, id_g_sanguineo, id_genero) 
         VALUES (:primer_nombre, :segundo_nombre, :primer_apellido, :segundo_apellido, :fecha_nacimiento, :id_tipo_documento, :n_documento, :id_f_sanguineo, :id_g_sanguineo, :id_genero)";
 
         $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(':primer_nombre', $this->primer_nombre);
-        $stmt->bindParam(':segundo_nombre', $this->segundo_nombre);
-        $stmt->bindParam(':primer_apellido', $this->primer_apellido);
-        $stmt->bindParam(':segundo_apellido', $this->segundo_apellido);
-        $stmt->bindParam(':fecha_nacimiento', $this->fecha_nacimiento);
-        $stmt->bindParam(':id_tipo_documento', $this->id_tipo_documento);
-        $stmt->bindParam(':n_documento', $this->n_documento);
-        $stmt->bindParam(':id_f_sanguineo', $this->id_f_sanguineo);
-        $stmt->bindParam(':id_g_sanguineo', $this->id_g_sanguineo);
-        $stmt->bindParam(':id_genero', $this->id_genero);
+        $stmt->bindParam(':primer_nombre', $datos['primer_nombre']);
+        $stmt->bindParam(':segundo_nombre', $datos['segundo_nombre']);
+        $stmt->bindParam(':primer_apellido', $datos['primer_apellido']);
+        $stmt->bindParam(':segundo_apellido', $datos['segundo_apellido']);
+        $stmt->bindParam(':fecha_nacimiento', $datos['fecha_nacimiento']);
+        $stmt->bindParam(':id_tipo_documento', $datos['id_tipo_documento']);
+        $stmt->bindParam(':n_documento', $datos['n_documento']);
+        $stmt->bindParam(':id_f_sanguineo', $datos['id_f_sanguineo']);
+        $stmt->bindParam(':id_g_sanguineo', $datos['id_g_sanguineo']);
+        $stmt->bindParam(':id_genero', $datos['id_genero']);
 
         try {
             $stmt->execute();

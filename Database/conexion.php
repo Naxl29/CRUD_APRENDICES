@@ -17,7 +17,6 @@ class Database{
             die("Error de conexión: " . $e->getMessage());
         }
     }
-
 }
 
 
