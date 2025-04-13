@@ -24,6 +24,10 @@
         public function update($id, $primer_nombre){
             return ($this->model->update($id, $primer_nombre) != false) ? header("Location:show.php?id=" .$id) : header("Location:index.php");
         }
+
+        public function delete($id){
+            return ($this->model->delete($id)) ? header("Location:index.php") : header("Location:show.php?id=".$id);
+        }
     }
 
 ?>

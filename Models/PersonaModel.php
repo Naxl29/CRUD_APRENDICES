@@ -30,7 +30,12 @@
             $stmt->bindParam(":primer_nombre",$primer_nombre);
             $stmt->bindParam(":id",$id);
             return ($stmt->execute()) ? $id : false ;
+        }
 
+        public function delete($id){
+            $stmt = $this->PDO->prepare("DELETE FROM personas WHERE id = :id");
+            $stmt->bindParam(":id",$id);
+            return ($stmt->execute()) ? true : false ;
         }
     }
 ?>
