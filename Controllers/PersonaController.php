@@ -1,53 +1,29 @@
 <?php
 
-require_once '../Models/Persona.php';
-require_once '../Views/PersonaView.php';
+    class PersonaController{
+        private $model;
+        public function __construct()
+        {
+            require_once("c://laragon/www/CRUD_APRENDICES/Models/PersonaModel.php");
+            $this->model = new Persona();
+        }
 
-class PersonaController
-{
-    private $view;
-    private $model;
+        public function guardar($primer_nombre){
+            $id = $this->model->crearPersona($primer_nombre);
+            return ($id!=false) ? header("Location:show.php?id=" .$id) : header("Location:create.php");
+        }
 
-    public function __construct()
-    {
-        $this->view = new PersonaView();
-        $this->model = new Persona();
-    }
+        public function show($id){
+            return ($this->model->show($id) != false) ? $this->model->show($id) : header("Location:index.php");
+        }
 
-    public function store()
-    {
-        $datos = $_POST; // Obtener los datos del formulario
+        public function index(){
+            return ($this->model->index()) ? $this->model->index() : false;
+        }
 
-        $resultado = $this->model->crearPersona($datos);
-
-        if (is_numeric($resultado)) {
-            // Éxito: Redirigir o mostrar un mensaje
-            $this->view->mostrarCrearPersona('Registro creado correctamente', 'success');
-        } else {
-            // Error: Mostrar un mensaje de error
-            $this->view->mostrarCrearPersona('Error al crear el registro: ' . $resultado, 'danger', $datos);
+        public function update($id, $primer_nombre){
+            return ($this->model->update($id, $primer_nombre) != false) ? header("Location:show.php?id=" .$id) : header("Location:index.php");
         }
     }
-
-    // ... (Otros métodos del controlador)
-
-    public function handleRequest()
-    {
-        $action = isset($_GET['action']) ? $_GET['action'] : '';
-
-        switch ($action) {
-            case 'store':
-                $this->store();
-                break;
-            // Otros casos para editar, eliminar, etc.
-            default:
-                // Acción por defecto o error
-                break;
-        }
-    }
-}
-
-$controller = new PersonaController();
-$controller->handleRequest();
 
 ?>
