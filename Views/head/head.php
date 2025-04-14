@@ -24,11 +24,11 @@
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Personas
+                            Aprendices
                         </a>
                         <ul class="dropdown-menu custom-dropdown-menu">
-                            <li><a class="dropdown-item" href="/CRUD_APRENDICES/Views/persona/index.php">Ver</a></li>
-                            <li><a class="dropdown-item" href="/CRUD_APRENDICES/Views/persona/create.php">Crear</a></li>
+                            <li><a class="dropdown-item" href="/CRUD_APRENDICES/Views/persona/index.php">Ver Aprendices</a></li>
+                            <li><a class="dropdown-item" href="/CRUD_APRENDICES/Views/persona/create.php">Agregar Aprendiz</a></li>
                         </ul>
                     </li>
                 </ul>

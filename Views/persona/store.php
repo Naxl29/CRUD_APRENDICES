@@ -25,6 +25,7 @@ $n_documento = $_POST['n_documento'];
 $id_g_sanguineo = intval($_POST['id_g_sanguineo']); 
 $id_f_sanguineo = intval($_POST['id_f_sanguineo']); 
 $id_genero = intval($_POST['id_genero']); 
+$id_programa = intval($_POST['id_programa']); 
 
 $obj->guardar(
     $primer_nombre,
@@ -36,6 +37,7 @@ $obj->guardar(
     $n_documento,
     $id_g_sanguineo,
     $id_f_sanguineo,
-    $id_genero
+    $id_genero,
+    $id_programa
 );
 ?>

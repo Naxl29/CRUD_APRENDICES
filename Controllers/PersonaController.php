@@ -8,8 +8,8 @@
             $this->model = new Persona();
         }
 
-        public function guardar($primer_nombre, $segundo_nombre, $primer_apellido, $segundo_apellido, $fecha_nacimiento, $id_tipo_documento, $n_documento, $id_g_sanguineo, $id_f_sanguineo, $id_genero){
-            $id = $this->model->crearPersona($primer_nombre, $segundo_nombre, $primer_apellido, $segundo_apellido, $fecha_nacimiento, $id_tipo_documento, $n_documento, $id_g_sanguineo, $id_f_sanguineo, $id_genero);
+        public function guardar($primer_nombre, $segundo_nombre, $primer_apellido, $segundo_apellido, $fecha_nacimiento, $id_tipo_documento, $n_documento, $id_g_sanguineo, $id_f_sanguineo, $id_genero, $id_programa){
+            $id = $this->model->crearPersona($primer_nombre, $segundo_nombre, $primer_apellido, $segundo_apellido, $fecha_nacimiento, $id_tipo_documento, $n_documento, $id_g_sanguineo, $id_f_sanguineo, $id_genero, $id_programa);
             return ($id!=false) ? header("Location:show.php?id=" .$id) : header("Location:create.php");
         }
 
@@ -21,8 +21,8 @@
             return ($this->model->index()) ? $this->model->index() : false;
         }
 
-        public function update($id, $primer_nombre, $segundo_nombre, $primer_apellido, $segundo_apellido, $fecha_nacimiento, $id_tipo_documento, $n_documento, $id_g_sanguineo, $id_f_sanguineo, $id_genero) {
-            return ($this->model->update($id, $primer_nombre, $segundo_nombre, $primer_apellido, $segundo_apellido, $fecha_nacimiento, $id_tipo_documento, $n_documento, $id_g_sanguineo, $id_f_sanguineo, $id_genero)) ? header("Location: show.php?id=" . $id) : header("Location: index.php");
+        public function update($id, $primer_nombre, $segundo_nombre, $primer_apellido, $segundo_apellido, $fecha_nacimiento, $id_tipo_documento, $n_documento, $id_g_sanguineo, $id_f_sanguineo, $id_genero, $id_programa) {
+            return ($this->model->update($id, $primer_nombre, $segundo_nombre, $primer_apellido, $segundo_apellido, $fecha_nacimiento, $id_tipo_documento, $n_documento, $id_g_sanguineo, $id_f_sanguineo, $id_genero, $id_programa)) ? header("Location: show.php?id=" . $id) : header("Location: index.php");
         }
         
 

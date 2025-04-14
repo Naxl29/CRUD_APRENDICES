@@ -11,6 +11,7 @@
     $grupo_sanguineo = $tabla->mostrarTablas('grupos_sanguineos');
     $factor_sanguineo = $tabla->mostrarTablas('factores_sanguineos');
     $genero = $tabla->mostrarTablas('generos');
+    $programa = $tabla->mostrarTablas('programas_formacion');
 
 
 ?>
@@ -83,6 +84,15 @@
                 </select>
             </div>
         </div>
+            <div class="form-group mb-5 col-md-4">
+                <label class="form-label">Programas</label>
+                <select name="id_programa" class="form-select" required>
+                    <option value="">Seleccione una opción</option>
+                    <?php foreach ($programa as $prog): ?>
+                        <option value="<?= $prog['id'] ?>"><?= $prog['programa'] ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
         <button type="submit" class="btn btn-primary">Crear</button>
         <a class="btn btn-danger" href="index.php">Cancelar</a>
