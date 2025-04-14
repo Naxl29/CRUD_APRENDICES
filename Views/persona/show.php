@@ -4,7 +4,7 @@
     $obj = new PersonaController();
     $date = $obj->show($_GET['id']);
 ?>
-<h2 class="text-center">Detalles del registro</h2>
+<h2 class="text-center">Detalles del Aprendiz</h2>
 <div class="pb-3">
     <a href="index.php" class="btn btn-primary">Regresar</a>
     <a href="edit.php?id=<?= $date[0]?>" class="btn btn-success">Actualizar</a>
@@ -35,13 +35,48 @@
     <thead>
         <tr>
             <th scope="col">Id</th>
-            <th scope="col">Nombre</th>
+            <th scope="col">Primer Nombre</th>
+            <th scope="col">Segundo Nombre</th>
+            <th scope="col">Primer Apellido</th>
+            <th scope="col">Segundo Apellido</th>
+            <th scope="col">Fecha de Nacimiento</th>
+            <th scope="col">Tipo de Documento</th>
+            <th scope="col">Número de documento</th>
+            <th scope="col">Grupo Sanguíneo</th>
+            <th scope="col">Factor Sanguíneo</th>
+            <th scope="col">Género</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td scope = "col"><?= $date["id"]?></td>
-            <td scope = "col"><?= $date["primer_nombre"]?></td>
+            <td scope="col"><?= $date["id_persona"] ?></td>
+            <td scope="col"><?= $date["primer_nombre"] ?></td>
+            <td scope="col"><?= $date["segundo_nombre"] ?></td>
+            <td scope="col"><?= $date["primer_apellido"] ?></td>
+            <td scope="col"><?= $date["segundo_apellido"] ?></td>
+            <td scope="col"><?= $date["fecha_nacimiento"] ?></td>
+            <td scope="col"><?= $date["tipo_documento"] ?></td>
+            <td scope="col"><?= $date["n_documento"] ?></td>
+            <td scope="col"><?= $date["grupo_sanguineo"] ?></td>
+            <td scope="col"><?= $date["factor_sanguineo"] ?></td>
+            <td scope="col"><?= $date["nombre_genero"] ?></td>
+        </tr>
+    </tbody>
+</table>
+
+<br><br>
+
+<table class="table container-fluid">
+    <thead>
+        <tr>
+            <th scope="col">Número de ficha</th>
+            <th scope="col">Programa de formación</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="col"><?= $date["nombre_genero"] ?></td>
+            <td scope="col"><?= $date["nombre_genero"] ?></td>  
         </tr>
     </tbody>
 </table>

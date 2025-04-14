@@ -2,7 +2,7 @@
 
 class Database{
     private string $host = "localhost"; 
-    private string $database = "dbprueba";
+    private string $database = "crud_aprendices";
     private string $user = "root";
     private string $password = "";
     
@@ -15,4 +15,4 @@ class Database{
         }
     }
 }
-?>
+?>  
